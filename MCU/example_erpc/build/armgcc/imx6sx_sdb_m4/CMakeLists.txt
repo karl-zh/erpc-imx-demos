@@ -146,7 +146,7 @@ ADD_EXECUTABLE(erpc_mcu_mpu_hello_world
 )
 SET_TARGET_PROPERTIES(erpc_mcu_mpu_hello_world PROPERTIES OUTPUT_NAME "erpc_mcu_mpu_hello_world.elf")
 
-add_library(erpc STATIC
+add_library(erpc_server STATIC
     "${ProjDirPath}/../../../../../middleware/erpc/erpc_c/infra/erpc_server.cpp"
     "${ProjDirPath}/../../../../../middleware/erpc/erpc_c/infra/erpc_server.h"
     "${ProjDirPath}/../../../../../middleware/erpc/erpc_c/infra/erpc_simple_server.cpp"
@@ -175,10 +175,65 @@ add_library(erpc STATIC
     "${ProjDirPath}/../../../../../middleware/erpc/erpc_c/transports/erpc_serial_transport.cpp"
     "${ProjDirPath}/../../../../../middleware/erpc/erpc_c/config/erpc_config.h"
 
-    "${ProjDirPath}/../../../../../MCU/example_erpc/service/erpc_matrix_multiply.h"
-    "${ProjDirPath}/../../../../../MCU/example_erpc/service/erpc_matrix_multiply_server.h"
-    "${ProjDirPath}/../../../../../MCU/example_erpc/service/erpc_matrix_multiply_server.cpp"
-    "${ProjDirPath}/../../../../../MCU/example_erpc/service/erpc_matrix_multiply_client.cpp"
+#    "${ProjDirPath}/../../../../../MCU/example_erpc/service/erpc_matrix_multiply.h"
+#    "${ProjDirPath}/../../../../../MCU/example_erpc/service/erpc_matrix_multiply_server.h"
+#    "${ProjDirPath}/../../../../../MCU/example_erpc/service/erpc_matrix_multiply_server.cpp"
+#    "${ProjDirPath}/../../../../../MCU/example_erpc/service/erpc_matrix_multiply_client.cpp"
+
+#    "${ProjDirPath}/../../../../../MCU/example_erpc/service/erpc_psa_client_api.h"
+#    "${ProjDirPath}/../../../../../MCU/example_erpc/service/erpc_psa_client_api_server.h"
+#    "${ProjDirPath}/../../../../../MCU/example_erpc/service/erpc_psa_client_api_server.cpp"
+#    "${ProjDirPath}/../../../../../MCU/example_erpc/service/erpc_psa_client_api_client.cpp"
+
+    "${ProjDirPath}/../../../../../MCU/example_erpc/service/erpc_psa_api.h"
+    "${ProjDirPath}/../../../../../MCU/example_erpc/service/erpc_psa_api_server.h"
+    "${ProjDirPath}/../../../../../MCU/example_erpc/service/erpc_psa_api_server.cpp"
+#    "${ProjDirPath}/../../../../../MCU/example_erpc/service/erpc_psa_api_client.cpp"
+)
+
+add_library(erpc_client STATIC
+    "${ProjDirPath}/../../../../../middleware/erpc/erpc_c/infra/erpc_server.cpp"
+    "${ProjDirPath}/../../../../../middleware/erpc/erpc_c/infra/erpc_server.h"
+    "${ProjDirPath}/../../../../../middleware/erpc/erpc_c/infra/erpc_simple_server.cpp"
+    "${ProjDirPath}/../../../../../middleware/erpc/erpc_c/infra/erpc_simple_server.h"
+    "${ProjDirPath}/../../../../../middleware/erpc/erpc_c/infra/erpc_client_manager.cpp"
+    "${ProjDirPath}/../../../../../middleware/erpc/erpc_c/infra/erpc_common.h"
+    "${ProjDirPath}/../../../../../middleware/erpc/erpc_c/infra/erpc_basic_codec.h"
+    "${ProjDirPath}/../../../../../middleware/erpc/erpc_c/infra/erpc_basic_codec.cpp"
+    "${ProjDirPath}/../../../../../middleware/erpc/erpc_c/infra/erpc_codec.h"
+    "${ProjDirPath}/../../../../../middleware/erpc/erpc_c/infra/erpc_version.h"
+    "${ProjDirPath}/../../../../../middleware/erpc/erpc_c/infra/erpc_message_buffer.cpp"
+    "${ProjDirPath}/../../../../../middleware/erpc/erpc_c/infra/erpc_message_buffer.h"
+    "${ProjDirPath}/../../../../../middleware/erpc/erpc_c/infra/erpc_crc16.cpp"
+    "${ProjDirPath}/../../../../../middleware/erpc/erpc_c/infra/erpc_framed_transport.cpp"
+    "${ProjDirPath}/../../../../../middleware/erpc/erpc_c/port/erpc_config_internal.h"
+    "${ProjDirPath}/../../../../../middleware/erpc/erpc_c/port/erpc_port.h"
+    "${ProjDirPath}/../../../../../middleware/erpc/erpc_c/port/erpc_port_zephyr.cpp"
+#    "${ProjDirPath}/../../../../../middleware/erpc/erpc_c/port/erpc_threading_zephyr.cpp"
+    "${ProjDirPath}/../../../../../middleware/erpc/erpc_c/setup/erpc_server_setup.cpp"
+    "${ProjDirPath}/../../../../../middleware/erpc/erpc_c/setup/erpc_server_setup.h"
+    "${ProjDirPath}/../../../../../middleware/erpc/erpc_c/setup/erpc_client_setup.cpp"
+    "${ProjDirPath}/../../../../../middleware/erpc/erpc_c/setup/erpc_setup_serial.cpp"
+    "${ProjDirPath}/../../../../../middleware/erpc/erpc_c/setup/erpc_setup_mbf_static.cpp"
+    "${ProjDirPath}/../../../../../middleware/erpc/erpc_c/setup/erpc_mbf_setup.h"
+    "${ProjDirPath}/../../../../../middleware/erpc/erpc_c/setup/erpc_transport_setup.h"
+    "${ProjDirPath}/../../../../../middleware/erpc/erpc_c/transports/erpc_serial_transport.cpp"
+    "${ProjDirPath}/../../../../../middleware/erpc/erpc_c/config/erpc_config.h"
+
+#    "${ProjDirPath}/../../../../../MCU/example_erpc/service/erpc_matrix_multiply.h"
+#    "${ProjDirPath}/../../../../../MCU/example_erpc/service/erpc_matrix_multiply_server.h"
+#    "${ProjDirPath}/../../../../../MCU/example_erpc/service/erpc_matrix_multiply_server.cpp"
+#    "${ProjDirPath}/../../../../../MCU/example_erpc/service/erpc_matrix_multiply_client.cpp"
+
+#    "${ProjDirPath}/../../../../../MCU/example_erpc/service/erpc_psa_client_api.h"
+#    "${ProjDirPath}/../../../../../MCU/example_erpc/service/erpc_psa_client_api_server.h"
+#    "${ProjDirPath}/../../../../../MCU/example_erpc/service/erpc_psa_client_api_server.cpp"
+#    "${ProjDirPath}/../../../../../MCU/example_erpc/service/erpc_psa_client_api_client.cpp"
+
+    "${ProjDirPath}/../../../../../MCU/example_erpc/service/erpc_psa_api.h"
+    "${ProjDirPath}/../../../../../MCU/example_erpc/service/erpc_psa_api_server.h"
+#    "${ProjDirPath}/../../../../../MCU/example_erpc/service/erpc_psa_api_server.cpp"
+    "${ProjDirPath}/../../../../../MCU/example_erpc/service/erpc_psa_api_client.cpp"
 )
 
 TARGET_LINK_LIBRARIES(erpc_mcu_mpu_hello_world -Wl,--start-group)

@@ -1,4 +1,4 @@
-program erpc_matrix_multiply
+program erpc_psa_api
 
 /*! This const defines the matrix size. The value has to be the same as the 
     Matrix array dimension. Do not forget to re-generate the erpc code once the 
@@ -31,5 +31,5 @@ interface PsaCallService {
 }
 
 interface PsaCloseService {
-    psa_close(in int32 ma) -> void
+    psa_close(in int32 handle) -> void
 }
